@@ -19,9 +19,9 @@
             window.location.href = `flutterDeepLink://gecstay/hostel?hostelId=${hostelId}`;
             
             // Fallback if the app is not installed
-            setTimeout(function() {
-                window.location.href = "https://gecstay.com/download"; // Redirect to app store or web page
-            }, 500);
+            // setTimeout(function() {
+            //     window.location.href = "https://gecstay.com/download"; // Redirect to app store or web page
+            // }, 500);
         } else {
             // Handle case where hostelId is not provided
             alert("Invalid link: hostelId is missing.");
