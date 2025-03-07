@@ -23,13 +23,12 @@
 
             // Fallback if the app is not installed
             setTimeout(function() {
-                // Display a fallback page with an h1 tag
                 document.body.innerHTML = `
                     <h1>Install the App First</h1>
                     <p>Please install the GecStay app to continue.</p>
                     
                 `;
-            }, 50000); // Wait 500ms before showing the fallback page
+            }, 500); // Wait 500ms before showing the fallback page
         } else {
             // Handle case where hostelId is not provided
             alert("Invalid link: hostelId is missing.");
