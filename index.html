@@ -15,13 +15,21 @@
         const hostelId = getQueryParam('hostelId');
 
         if (hostelId) {
-            // Try to open the deep link with the dynamic hostelId
-            window.location.href = `flutterDeepLink://gecstay/hostel?hostelId=${hostelId}`;
-            
+            // Construct the deep link
+            const deepLink = `flutterDeepLink://gecstay/hostel?hostelId=${hostelId}`;
+
+            // Try to open the deep link
+            window.location.href = deepLink;
+
             // Fallback if the app is not installed
-            // setTimeout(function() {
-            //     window.location.href = "https://gecstay.com/download"; // Redirect to app store or web page
-            // }, 500);
+            setTimeout(function() {
+                // Display a fallback page with an h1 tag
+                document.body.innerHTML = `
+                    <h1>Install the App First</h1>
+                    <p>Please install the GecStay app to continue.</p>
+                    
+                `;
+            }, 50000); // Wait 500ms before showing the fallback page
         } else {
             // Handle case where hostelId is not provided
             alert("Invalid link: hostelId is missing.");
