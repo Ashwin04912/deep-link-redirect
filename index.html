@@ -14,28 +14,31 @@
         // Get the hostelId from the URL
         const hostelId = getQueryParam('hostelId');
 
-        if (hostelId) {
-            // Construct the deep link
-            const deepLink = `flutterDeepLink://gecstay/hostel?hostelId=${hostelId}`;
+        // Function to handle redirection
+        function redirectToApp() {
+            if (hostelId) {
+                // Construct the deep link
+                const deepLink = `flutterDeepLink://gecstay/hostel?hostelId=${hostelId}`;
 
-            // Try to open the deep link
-            window.location.href = deepLink;
+                // Try to open the deep link
+                window.location.href = deepLink;
 
-            // Fallback if the app is not installed
-            setTimeout(function() {
-                document.body.innerHTML = `
-                    <h1>Install the App First</h1>
-                    <p>Please install the GecStay app to continue.</p>
-                    
-                `;
-            }, 500); // Wait 500ms before showing the fallback page
-        } else {
-            // Handle case where hostelId is not provided
-            alert("Invalid link: hostelId is missing.");
+                // Fallback if the app is not installed
+                setTimeout(function() {
+                    document.body.innerHTML = `
+                        <h1>Install the App First</h1>
+                        <p>Please install the GecStay app to continue.</p>
+                    `;
+                }, 500); // Wait 500ms before showing the fallback page
+            } else {
+                // Handle case where hostelId is not provided
+                alert("Invalid link: hostelId is missing.");
+            }
         }
     </script>
 </head>
 <body>
-    <p>Redirecting you to the GecStay app...</p>
+    <p>Click the button below to be redirected to the GecStay app:</p>
+    <button onclick="redirectToApp()">Go to GecStay</button>
 </body>
 </html>
